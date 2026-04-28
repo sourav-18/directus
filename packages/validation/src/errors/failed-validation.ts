@@ -16,7 +16,7 @@ export type ImportRowRange = {
 export interface FailedValidationErrorExtensions {
 	field: string;
 	path: (string | number)[];
-	type: ClientFilterOperator | 'required' | 'email';
+	type: ClientFilterOperator | 'required' | 'email' | 'unsafe';
 	valid?: number | string | (number | string)[];
 	invalid?: number | string | (number | string)[];
 	substring?: string;
@@ -63,6 +63,9 @@ export const messageConstructor = (extensions: FailedValidationErrorExtensions):
 					.map((val) => `"${val}"`)
 					.join(', ')}.`;
 
+				break;
+			case 'unsafe':
+				message += ` Value is not a safe number "${extensions.invalid}".`;
 				break;
 		}
 	}
