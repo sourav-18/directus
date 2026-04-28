@@ -98,9 +98,9 @@ export const joiValidationErrorItemToErrorExtensions = (
 
 	// unsafe number (outside safe number range)
 	if (joiType === 'number.unsafe') {
-	extensions.type = 'unsafe';
-	extensions.invalid=validationErrorItem.context?.value
-	} 
+		extensions.type = 'unsafe';
+		extensions.invalid = validationErrorItem.context?.value;
+	}
 
 	// TODO Find a better way of passing the expected value down to the client
 	if (joiType.endsWith('.pattern.name') || joiType.endsWith('.pattern.invert.name')) {
