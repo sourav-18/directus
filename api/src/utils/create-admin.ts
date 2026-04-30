@@ -34,6 +34,11 @@ export async function createAdmin(
 	const logger = useLogger();
 	const env = useEnv();
 
+	if (!admin || !admin.email || !admin.password) {
+		logger.info('Skipping admin user creation');
+		return;
+	}
+
 	logger.info('Setting up first admin role...');
 	const accessService = new AccessService({ schema });
 	const policiesService = new PoliciesService({ schema });
