@@ -160,6 +160,7 @@ test('Presentation fields ignore required', () => {
 		fields as Field[],
 		true,
 	);
+
 	expect(result.length).toEqual(1);
 
 	result = validateItem(
@@ -172,5 +173,6 @@ test('Presentation fields ignore required', () => {
 		fields as Field[],
 		true,
 	);
+
 	expect(result.length).toEqual(0);
 });
